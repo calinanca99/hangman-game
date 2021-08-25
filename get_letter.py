@@ -1,16 +1,16 @@
-def getLetter(usedLetters):
+def get_letter(used_letters):
     while True:
         guess = (input("Guess a letter ---> ")).lower()
         if guess not in "abcdefghijklmnopqrstuvwxyz" or len(guess) != 1:
             print("Please enter ONE LETTER")
             continue
         else:
-            if guess in usedLetters:
+            if guess in used_letters:
                 print(f"{guess} has been already used.")
-                print(f"The used letter are {sorted(usedLetters)}")
-                print(sorted(usedLetters))
+                print(f"The used letter are {sorted(used_letters)}")
+                print(sorted(used_letters))
                 continue
             else:
-                usedLetters.append(guess)
-                print(f"The used letter are {sorted(usedLetters)}")
+                used_letters.append(guess)
+                print(f"The used letter are {sorted(used_letters)}")
                 return guess

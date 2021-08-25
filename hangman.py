@@ -10,7 +10,7 @@ def main():
         word = words[random.randint(0, len(words)-1)]
         play(word)
 
-        if getChoice().lower()[0] == 'y':
+        if get_choice().lower()[0] == 'y':
             continue
         else:
             print("Thanks for playing.\nBye!")

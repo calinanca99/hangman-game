@@ -1,20 +1,20 @@
 from return_index import *
 from get_letter import *
 
-def play(word): ###Main part of the game
-    usedLetters = []
+def play(word):
+    used_letters = []
     word = word.lower()
-    mask = [i for i in'*'*len(word)]
+    mask = [i for i in '*' * len(word)]
     limbs = 0
 
     print(f"Your word has {len(word)} letters!")
     print("".join(mask))
 
     while '*' in mask:
-        letter = getLetter(usedLetters)
+        letter = get_letter(used_letters)
 
         if letter in word:
-            indexes = returnIndex(word, letter)
+            indexes = return_index(word, letter)
 
             for i in indexes:
                 mask[i] = letter
