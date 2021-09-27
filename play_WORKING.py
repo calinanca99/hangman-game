@@ -1,5 +1,5 @@
 from return_index import *
-from get_letter import *
+from letter import *
 
 def play(word):
     used_letters = []
