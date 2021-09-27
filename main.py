@@ -10,8 +10,8 @@ def main():
     while True:
         word = words[random.randint(0, len(words)-1)]
         play(word)
-        
-        if get_choice().lower()[0] == 'y':
+
+        if get_choice() == 'y':
             continue
         else:
             print("Thanks for playing.\nBye!")
