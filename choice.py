@@ -9,4 +9,4 @@ def get_choice():
         if choice.lower()[0] not in "ny":
             print("ENTER Y for YES and N for NO.")
         else:
-            return choice
+            return choice.lower()[0]
