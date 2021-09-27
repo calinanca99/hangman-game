@@ -11,7 +11,7 @@ def play(word):
     print("".join(mask))
 
     while '*' in mask:
-        letter = get_letter(used_letters)
+        letter = try_letter(used_letters)
 
         if letter in word:
             indexes = return_index(word, letter)
