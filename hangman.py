@@ -1,6 +1,6 @@
 import random
 from play_WORKING import *
-from get_choice import *
+from choice import *
 
 def main():
     print("-----------Welcome to the Hangman!-----------")
