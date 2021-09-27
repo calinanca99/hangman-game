@@ -1,20 +1,42 @@
-import random
-from play_WORKING import *
-from choice import *
+from index import *
+from letter import *
 
-def main():
-    print("-----------Welcome to the Hangman!-----------")
-    print("The rules are simple: I think about a word and you have to guess it! You have 5 limbs.\nLet's start!\n")
-    words = ['computer', 'house', 'duck', 'muscle', 'mouse', 'wood', 'table', 'window', 'cigarette']
-    while True:
-        word = words[random.randint(0, len(words)-1)]
-        play(word)
+def play(word):
+    """
+    This function is reponsible for the logic of the game.
 
-        if get_choice().lower()[0] == 'y':
-            continue
-        else:
-            print("Thanks for playing.\nBye!")
+    Unmask the word as the user guesses more letter and keep track of the number of limbs remained.
+    """
+    used_letters = []
+    word = word.lower()
+    mask = [i for i in '*' * len(word)]
+    limbs = 0
+
+    print(f"Your word has {len(word)} letters!")
+    print("".join(mask))
+
+    while '*' in mask:
+        letter = try_letter(used_letters)
+
+        if letter in word:
+            indexes = return_index(word, letter)
+
+            for i in indexes:
+                mask[i] = letter
+
+        if letter not in word:
+            limbs += 1
+            print(f"WRONG! You have {limbs} limbs.")
+
+        print("".join(mask))
+
+        if limbs >= 5:
+            print("You lost!")
+            print(f"The word was: {word}")
             break
 
-if __name__ == "__main__":
-    main()
+        if '*' not in mask:
+            mask = "".join(mask)
+            print("You won!")
+            print(f"The word was: {word}")
+            break
